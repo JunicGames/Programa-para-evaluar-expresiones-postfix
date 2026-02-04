@@ -17,25 +17,17 @@ public class StackVector<T> implements Stack<T> {
 
     @Override
     public T pop() throws Exception {
-        if (isEmpty())
-            throw new Exception("Pila vacia");
+        if (data.isEmpty()) {
+            throw new Exception("Pila vacía");
+        }
         return data.remove(data.size() - 1);
     }
 
     @Override
     public T peek() throws Exception {
-        if (isEmpty())
-            throw new Exception("Pila vacia");
+        if (data.isEmpty()) {
+            throw new Exception("Pila vacía");
+        }
         return data.get(data.size() - 1);
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return data.isEmpty();
-    }
-
-    @Override
-    public int size() {
-        return data.size();
     }
 }

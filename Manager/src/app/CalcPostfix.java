@@ -22,15 +22,16 @@ public class CalcPostfix implements Calc {
             }
             else if (isOperator(token)) {
 
-                if (stack.isEmpty())
+                int b;
+                int a;
+
+                try {
+                    b = stack.pop();
+                    a = stack.pop();
+                } catch (Exception e) {
                     throw new CalcException("Operandos insuficientes");
+                }
 
-                int b = stack.pop();
-
-                if (stack.isEmpty())
-                    throw new CalcException("Operandos insuficientes");
-
-                int a = stack.pop();
                 int result = switch (token) {
                     case "+" -> a + b;
                     case "-" -> a - b;
@@ -50,13 +51,20 @@ public class CalcPostfix implements Calc {
             }
         }
 
-        if (stack.isEmpty())
+        int result;
+        try {
+            result = stack.pop();
+        } catch (Exception e) {
             throw new CalcException("Expresion invalida");
+        }
 
-        int result = stack.pop();
-
-        if (!stack.isEmpty())
+        try {
+            stack.pop();
             throw new CalcException("Expresion invalida");
+        } catch (CalcException e) {
+            throw e;
+        } catch (Exception e) {
+        }
 
         return result;
     }
