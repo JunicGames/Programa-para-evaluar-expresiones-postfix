@@ -3,7 +3,7 @@ package app;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import stack.Stack;
-import stack.VectorStack;
+import stack.StackVector;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalcPostfixTest {
@@ -12,7 +12,7 @@ public class CalcPostfixTest {
 
     @BeforeEach
     void setUp() {
-        Stack<Integer> stack = new VectorStack<>();
+        Stack<Integer> stack = new StackVector<>();
         calc = new CalcPostfix(stack);
     }
 

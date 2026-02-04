@@ -2,11 +2,11 @@ package stack;
 
 import java.util.ArrayList;
 
-public class ArrayListStack<T> implements Stack<T> {
+public class StackArrayList<T> implements Stack<T> {
 
     private ArrayList<T> data;
 
-    public ArrayListStack() {
+    public StackArrayList() {
         data = new ArrayList<>();
     }
 
@@ -17,15 +17,17 @@ public class ArrayListStack<T> implements Stack<T> {
 
     @Override
     public T pop() throws Exception {
-        if (isEmpty())
-            throw new Exception("Pila vacia");
+        if (isEmpty()) {
+            throw new Exception("Pila vacía");
+        }
         return data.remove(data.size() - 1);
     }
 
     @Override
     public T peek() throws Exception {
-        if (isEmpty())
-            throw new Exception("Pila vacia");
+        if (isEmpty()) {
+            throw new Exception("Pila vacía");
+        }
         return data.get(data.size() - 1);
     }
 

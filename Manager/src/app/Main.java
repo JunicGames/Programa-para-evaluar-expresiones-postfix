@@ -1,7 +1,7 @@
 package app;
 
 import stack.Stack;
-import stack.VectorStack;
+import stack.StackVector;
 
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Stack<Integer> stack = new VectorStack<>();
+        Stack<Integer> stack = new StackVector<>();
 
         Calc calc = new CalcPostfix(stack);
 

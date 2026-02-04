@@ -2,11 +2,11 @@ package stack;
 
 import java.util.Vector;
 
-public class VectorStack<T> implements Stack<T> {
+public class StackVector<T> implements Stack<T> {
 
     private Vector<T> data;
 
-    public VectorStack() {
+    public StackVector() {
         data = new Vector<>();
     }
 
