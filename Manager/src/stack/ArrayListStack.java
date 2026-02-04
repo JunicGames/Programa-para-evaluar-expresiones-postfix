@@ -1,12 +1,12 @@
-package app;
+package stack;
 
 import java.util.ArrayList;
 
-public class StackArrayList<T> implements Stack<T> {
+public class ArrayListStack<T> implements Stack<T> {
 
     private ArrayList<T> data;
 
-    public StackArrayList() {
+    public ArrayListStack() {
         data = new ArrayList<>();
     }
 
@@ -16,18 +16,16 @@ public class StackArrayList<T> implements Stack<T> {
     }
 
     @Override
-    public T pop() {
-        if (isEmpty()) {
-            throw new RuntimeException("Pila vacía");
-        }
+    public T pop() throws Exception {
+        if (isEmpty())
+            throw new Exception("Pila vacia");
         return data.remove(data.size() - 1);
     }
 
     @Override
-    public T peek() {
-        if (isEmpty()) {
-            throw new RuntimeException("Pila vacía");
-        }
+    public T peek() throws Exception {
+        if (isEmpty())
+            throw new Exception("Pila vacia");
         return data.get(data.size() - 1);
     }
 
@@ -41,4 +39,3 @@ public class StackArrayList<T> implements Stack<T> {
         return data.size();
     }
 }
-

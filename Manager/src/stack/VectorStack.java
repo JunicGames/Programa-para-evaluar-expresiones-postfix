@@ -1,12 +1,12 @@
-package app;
+package stack;
 
 import java.util.Vector;
 
-public class StackVector<T> implements Stack<T> {
+public class VectorStack<T> implements Stack<T> {
 
     private Vector<T> data;
 
-    public StackVector() {
+    public VectorStack() {
         data = new Vector<>();
     }
 
@@ -16,19 +16,17 @@ public class StackVector<T> implements Stack<T> {
     }
 
     @Override
-    public T pop() {
-        if (isEmpty()) {
-            throw new RuntimeException("Pila vacía");
-        }
+    public T pop() throws Exception {
+        if (isEmpty())
+            throw new Exception("Pila vacia");
         return data.remove(data.size() - 1);
     }
 
     @Override
-    public T peek() {
-        if (isEmpty()) {
-            throw new RuntimeException("Pila vacía");
-        }
-        return data.lastElement();
+    public T peek() throws Exception {
+        if (isEmpty())
+            throw new Exception("Pila vacia");
+        return data.get(data.size() - 1);
     }
 
     @Override
@@ -41,4 +39,3 @@ public class StackVector<T> implements Stack<T> {
         return data.size();
     }
 }
-
